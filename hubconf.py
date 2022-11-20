@@ -135,13 +135,13 @@ def test_network(dataloader, model, loss_fun):
     f1_score = F1Score(average = 'macro', num_classes = 10).to(device)
     print('f1_score :', f1_score(pred,y))
     return accuracy1,precision, recall, f1_score
-train_data, test_data = get_datasets()
-train_dataloader, test_dataloader = get_dataloaders(train_data, test_data)
-num_classes = get_num_classes(test_data)
-input_dim = get_input_dim(train_dataloader)
-config = [(1, 20, 1, (5,5), 0), (20, 50, 1, (5,5), 0)]
-model = get_model(config, input_dim, num_classes)
-model = model.to(device)
-optim = get_optim(model)
-train_network(train_dataloader, model, optim, loss_fun)
-test_network(test_dataloader, model, loss_fun)
+# train_data, test_data = get_datasets()
+# train_dataloader, test_dataloader = get_dataloaders(train_data, test_data)
+# num_classes = get_num_classes(test_data)
+# input_dim = get_input_dim(train_dataloader)
+# config = [(1, 20, 1, (5,5), 0), (20, 50, 1, (5,5), 0)]
+# model = get_model(config, input_dim, num_classes)
+# model = model.to(device)
+# optim = get_optim(model)
+# train_network(train_dataloader, model, optim, loss_fun)
+# test_network(test_dataloader, model, loss_fun)
