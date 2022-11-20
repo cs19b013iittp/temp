@@ -112,10 +112,10 @@ from sklearn.metrics import precision_recall_fscore_support
 from torchmetrics import Precision, Recall, F1Score, Accuracy
 from torchmetrics.classification import accuracy
 
-def test_network(dataloader, model, loss_fun):
+def test_network(dataloader, DynCNN_model, loss_fun):
     size = len(dataloader.dataset)
     num_batches = len(dataloader)
-    model.eval()
+    DynCNN_model.eval()
     test_loss, correct = 0, 0
     with torch.no_grad():
         for X, y in dataloader:
