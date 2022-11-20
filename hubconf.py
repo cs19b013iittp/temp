@@ -70,7 +70,7 @@ def get_optim(model, lr=1e-6):
 def get_num_classes(train_data):
     return len(train_data.classes)
 
-def get_input_dim(train_dataloader):
+def get_input_dim(test_dataloader):
     _x, _y = None,None
 
     for X, y in test_dataloader:
