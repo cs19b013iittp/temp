@@ -88,7 +88,7 @@ def get_model(config, input_dim, num_classes):
     model = Dyn_CNN(config, input_dim, num_classes)
     return model
 
-def train_network(train_dataloader, model, optim, loss_fn, epochs=5):
+def train_network(train_dataloader, DynCNN_model, optim, loss_fn, epochs=5):
     print('Training Model ...\n\n')
     for epoch in range(epochs):
         running_loss = 0.0
@@ -96,7 +96,7 @@ def train_network(train_dataloader, model, optim, loss_fn, epochs=5):
             inputs, labels = data
             inputs , labels = inputs.to(device), labels.to(device)
             optim.zero_grad()
-            outputs = model(inputs)
+            outputs = DynCNN_model(inputs)
             tmp = torch.nn.functional.one_hot(labels, num_classes= 10)
             loss = loss_fn(outputs, tmp)
             loss.backward()
