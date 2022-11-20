@@ -63,8 +63,8 @@ def loss_fun(y_pred, y_actual):
   v = torch.sum(v)
   return v
 
-def get_optim(model, lr=1e-6):
-    optim = torch.optim.SGD(model.parameters(), lr = lr)
+def get_optim(DynCNN_model, lr=1e-6):
+    optim = torch.optim.SGD(DynCNN_model.parameters(), lr = lr)
     return optim
     
 def get_num_classes(train_data):
