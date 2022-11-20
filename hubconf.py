@@ -63,6 +63,9 @@ def loss_fun(y_pred, y_actual):
   v = torch.sum(v)
   return v
 
+def get_lossFn():
+    return loss_fun
+
 def get_optim(DynCNN_model, lr=1e-6):
     optim = torch.optim.SGD(DynCNN_model.parameters(), lr = lr)
     return optim
