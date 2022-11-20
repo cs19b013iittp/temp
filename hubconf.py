@@ -122,7 +122,7 @@ def test_network(dataloader, DynCNN_model, loss_fun):
             X = X.to(device)
             y = y.to(device)
             tmp = torch.nn.functional.one_hot(y, num_classes= 10)
-            pred = model(X)
+            pred = DynCNN_model(X)
             test_loss += loss_fun(pred, tmp).item()
             correct += (pred.argmax(1) == y).type(torch.float).sum().item()
     test_loss/= num_batches
